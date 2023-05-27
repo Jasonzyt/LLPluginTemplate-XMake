@@ -1,0 +1,60 @@
+# Documents: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+Language: Cpp
+BasedOnStyle: LLVM
+AccessModifierOffset: -4
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: None
+AlignConsecutiveDeclarations: None
+AlignOperands: Align
+AlwaysBreakTemplateDeclarations: Yes
+AlignTrailingComments: true
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortBlocksOnASingleLine: Always
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortLambdasOnASingleLine: All
+AllowShortEnumsOnASingleLine: false
+AlwaysBreakAfterDefinitionReturnType: None
+BinPackArguments: true
+BinPackParameters: true
+ConstructorInitializerIndentWidth: 0
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+BreakBeforeConceptDeclarations: Always
+RequiresClausePosition: OwnLine
+ColumnLimit: 120
+CommentPragmas: '^ IWYU pragma:'
+PointerAlignment: Left
+IndentWidth: 4
+SortIncludes: Never
+MaxEmptyLinesToKeep: 2
+SpacesInSquareBrackets: false
+SpacesInParentheses: false
+SpaceBeforeAssignmentOperators: true
+SpacesInContainerLiterals: true
+IndentWrappedFunctionNames: true
+KeepEmptyLinesAtTheStartOfBlocks: true
+SeparateDefinitionBlocks: Always
+BreakConstructorInitializersBeforeComma: true
+SpaceAfterCStyleCast: false
+IndentCaseLabels: true
+TabWidth: 4
+UseTab: Never
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterCaseLabel: false
+  AfterClass: false
+  AfterEnum: false
+  AfterFunction: false
+  AfterNamespace: false
+  AfterStruct: false
+  AfterUnion: false
+  AfterExternBlock: false
+  BeforeCatch: false
+  BeforeElse: false
+  IndentBraces: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true

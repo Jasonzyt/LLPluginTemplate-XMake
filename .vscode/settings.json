@@ -1,0 +1,10 @@
+{
+    "C_Cpp.default.includePath": [
+        "${WorkspaceFolder}/include",
+        "${WorkspaceFolder}/SDK/include"
+    ],
+    "c-cpp-flylint.clang.includePaths": [
+        "${WorkspaceFolder}/include",
+        "${WorkspaceFolder}/SDK/include"
+    ]
+}

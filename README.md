@@ -90,10 +90,20 @@ Build with XMake is very simple, just run `xmake build` in the root directory of
 An after-build script is provided. It will copy the built plugin to `release/` and rename it.
 You can modify `xmake.lua` to do more things. [Here](https://xmake.io/#/getting_started) is the official guide.
 
+When build for the first time or the SDK updated, it will ask you to select a pdb file to generate bedrock_server_api.lib and bedrock_server_var.lib.
+
 ### 0x4 Run BDS
 
 Put the built dlls from `build/windows/x64/release` or `release/` into `plugins/` folder of your BDS installation directory.
 Then, run `bedrock_server_mod.exe` to start your server.
+
+### 0x5 Update SDK
+
+Run `script/UpdateSDK.cmd` to update SDK.
+```bash
+# At the root directory of your project
+script/UpdateSDK.cmd
+```
 
 ## License
 

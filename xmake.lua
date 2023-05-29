@@ -57,3 +57,33 @@ target("MyPlugin")
             os.exec("./PeEditor.exe -c -l -o ../lib")
         end
     end)
+    after_build(function (target)
+        local plugin_header_file = "include/myplugin/Plugin.h"
+        local basename = target:basename()
+        local filename = target:filename()
+        import("lib.detect.find_tool")
+        local cl = find_tool("cl.exe")
+        if cl then
+            io.writefile("preprocess.cpp", "#include \"" .. plugin_header_file .. "\"\nPLUGIN_VERSION_STRING")
+            os.run('"' .. cl.program .. "\" /P /EP preprocess.cpp")
+            local text = io.readfile("./preprocess.i")
+            os.rm("./preprocess.*")
+            local startIndex = -1
+            local endIndex = -1
+            for i=#text,1,-1 do 
+                local ch = string.sub(text, i, i)
+                if ch == '"' then
+                    if endIndex == -1 then
+                        endIndex = i
+                    else 
+                        startIndex = i
+                        break
+                    end
+                end
+            end
+            local version = string.sub(text, startIndex + 1, endIndex - 1)
+            filename = basename .. "-v" .. version .. ".dll"
+        end
+        os.cp(target:targetfile(), "./release/" .. filename)
+        os.cp(target:targetdir() .. '/' .. basename .. ".pdb", "./release/")
+    end)

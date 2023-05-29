@@ -1,0 +1,44 @@
+name: Build
+on: [workflow_dispatch, pull_request, push]
+
+jobs:
+  build:
+    name: Build
+    runs-on: windows-2022
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3.2.0
+        with:
+          fetch-depth: 1
+          submodules: 'true'
+      - name: Setup XMake
+        uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: latest
+      - name: Download BDS
+        run: |
+          curl -L -o LINK.txt https://raw.githubusercontent.com/LiteLDev/LiteLoaderBDS/main/scripts/LINK.txt
+          ServerLink=$(cat 'LINK.txt')
+          curl -L -o bds.zip "$ServerLink"
+          unzip bds.zip -d bds/ > /dev/null
+        shell: bash
+      - name: Build Library
+        run: |
+          cd SDK/tools
+          ./PeEditor.exe -l --pdb ../../bds/bedrock_server.pdb -o ../lib
+        shell: bash
+      - name: Complete Version Info
+        run: |
+          export sha_short=$(git rev-parse --short HEAD)
+          sed -r -i "s/#define\s+PLUGIN_VERSION_COMMIT_SHA\s+.*/#define PLUGIN_VERSION_COMMIT_SHA \"$sha_short\"\r/" include/myplugin/Plugin.h
+          sed -r -i "s/#define\s+PLUGIN_VERSION_BUILD\s+.*/#define PLUGIN_VERSION_BUILD ${{ github.run_number }}\r/" include/myplugin/Plugin.h
+        shell: bash
+      - name: Build
+        run: |
+          xmake build -a -v
+        shell: bash
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: MyPlugin-build.${{ github.run_number }}
+          path: ${{ github.workspace }}\release

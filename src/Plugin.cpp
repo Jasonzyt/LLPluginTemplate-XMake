@@ -1,6 +1,7 @@
 #include <llapi/LoggerAPI.h>
 #include <llapi/EventAPI.h>
 #include <llapi/mc/Player.hpp>
+#include <myplugin/Resource.h>
 #include <myplugin/Plugin.h>
 
 namespace my_plugin {

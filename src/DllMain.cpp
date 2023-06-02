@@ -1,6 +1,6 @@
 #include <Windows.h>
 #include <llapi/LLAPI.h>
-#include <myplugin/Plugin.h>
+#include <myplugin/Resource.h>
 
 BOOL APIENTRY DllMain(HMODULE, DWORD reasonForCall, LPVOID) {
     switch (reasonForCall) {

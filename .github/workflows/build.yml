@@ -30,7 +30,7 @@ jobs:
       - name: Complete Version Info
         run: |
           export sha_short=$(git rev-parse --short HEAD)
-          sed -r -i "s/#define\s+PLUGIN_VERSION_COMMIT_SHA\s+.*/#define PLUGIN_VERSION_COMMIT_SHA \"$sha_short\"\r/" include/myplugin/Plugin.h
+          sed -r -i "s/#define\s+PLUGIN_VERSION_COMMIT_SHA\s+.*/#define PLUGIN_VERSION_COMMIT_SHA $sha_short\r/" include/myplugin/Plugin.h
           sed -r -i "s/#define\s+PLUGIN_VERSION_BUILD\s+.*/#define PLUGIN_VERSION_BUILD ${{ github.run_number }}\r/" include/myplugin/Plugin.h
         shell: bash
       - name: Build

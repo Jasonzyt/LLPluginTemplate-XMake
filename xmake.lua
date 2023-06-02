@@ -58,7 +58,7 @@ target("MyPlugin")
         end
     end)
     after_build(function (target)
-        local plugin_header_file = "include/myplugin/Plugin.h"
+        local plugin_header_file = "include/myplugin/Resource.h"
         local basename = target:basename()
         local filename = target:filename()
         import("lib.detect.find_tool")

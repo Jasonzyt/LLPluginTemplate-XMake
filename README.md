@@ -1,5 +1,7 @@
 [English](#LiteLoaderBDS-Plugin-Template-for-XMake) | [中文](#LiteLoaderBDS-插件模板使用XMake--C)
 
+![CC0](https://licensebuttons.net/l/zero/1.0/88x31.png)
+
 ---
 
 # LiteLoaderBDS Plugin Template for XMake
@@ -122,7 +124,7 @@ script/UpdateSDK.cmd
 
 ## License
 
-[MIT](LICENSE)
+Licensed under [CC0](LICENSE)
 
 ## Aknowledgements
 
@@ -252,7 +254,7 @@ script/UpdateSDK.cmd
 
 ## 开源许可证
 
-本项目使用 [MIT](LICENSE) 许可证。
+本项目使用 [CC0](LICENSE) 许可证。
 
 ## 致谢
 

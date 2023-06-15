@@ -4,7 +4,7 @@ target("MyPlugin")
     set_toolchains("msvc")
     set_rules("mode.release")
     set_kind("shared")
-    
+
     add_files("src/*.cpp")
     add_files("src/*.rc")
     add_headerfiles("include/*.h")
@@ -51,7 +51,7 @@ target("MyPlugin")
     )
     add_shflags(
         "/DELAYLOAD:bedrock_server.dll",
-        "/DEBUG",
+        "/DEBUG"
     )
     on_load(function (target)
         if (not os.exists("SDK/lib/bedrock_server_api.lib") or not os.exists("SDK/lib/bedrock_server_var.lib")) then

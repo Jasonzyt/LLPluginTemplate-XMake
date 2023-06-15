@@ -3,8 +3,8 @@ target("MyPlugin")
     set_arch("x64")
     set_toolchains("msvc")
     set_rules("mode.release")
-
     set_kind("shared")
+    
     add_files("src/*.cpp")
     add_files("src/*.rc")
     add_headerfiles("include/*.h")
@@ -24,17 +24,20 @@ target("MyPlugin")
     )
     set_warnings("all")
     set_optimize("fastest")
-    set_runtimes("MD")
     set_languages("c17", "cxx20")
     add_linkdirs(
         "SDK/lib"
     )
     add_links(
-        "LiteLoader",
-        "SymDBHelper",
         "bedrock_server_api",
         "bedrock_server_var",
-        "delayimp"
+        "LiteLoader",
+        "SymDBHelper",
+        "Delayimp"
+        -- IMPORTANT: DO NOT CHANGE THE ORDER OF THE LINKS ABOVE
+
+        -- , "xxx"
+        -- add your libs here
     )
     add_cxflags(
         "/utf-8",
@@ -49,7 +52,6 @@ target("MyPlugin")
     add_shflags(
         "/DELAYLOAD:bedrock_server.dll",
         "/DEBUG",
-        "/SUBSYSTEM:CONSOLE"
     )
     on_load(function (target)
         if (not os.exists("SDK/lib/bedrock_server_api.lib") or not os.exists("SDK/lib/bedrock_server_var.lib")) then

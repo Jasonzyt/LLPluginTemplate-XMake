@@ -86,6 +86,9 @@ target("MyPlugin")
             local version = string.sub(text, startIndex + 1, endIndex - 1)
             filename = basename .. "-v" .. version .. ".dll"
         end
+        if not os.exists("./release") then
+            os.mkdir("./release")
+        end
         os.cp(target:targetfile(), "./release/" .. filename)
         os.cp(target:targetdir() .. '/' .. basename .. ".pdb", "./release/")
     end)

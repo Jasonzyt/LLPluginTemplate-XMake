@@ -1,10 +1,14 @@
+set_plat("windows")
+set_arch("x64")
+set_toolchains("msvc")
+
+-- add_requires(...)
+
 target("MyPlugin")
-    set_plat("windows")
-    set_arch("x64")
-    set_toolchains("msvc")
     set_rules("mode.release")
     set_kind("shared")
 
+    -- add_packages(...)
     add_files("src/*.cpp")
     add_files("src/*.rc")
     add_headerfiles("include/*.h")

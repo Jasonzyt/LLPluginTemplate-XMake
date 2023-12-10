@@ -4,6 +4,9 @@
 
 ---
 
+**This template is for LiteLoaderBDS(v2), which have been archived.**  
+**For LeviLamina plugin template, please visit https://github.com/LiteLDev/levilamina-plugin-template**
+
 # LiteLoaderBDS Plugin Template for XMake
 
 [XMake](https://xmake.io) is a lightweight cross-platform build utility based on Lua. It is very easy to use.
